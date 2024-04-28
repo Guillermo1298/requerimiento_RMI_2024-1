@@ -1,0 +1,67 @@
+package servidor.Repositorios;
+
+import java.rmi.RemoteException;
+import java.util.ArrayList;
+import java.util.List;
+import servidor.DTO.UsuarioEntradaSalidaDTO;
+
+/*
+Clase que implementa la interface remota GestorUsuariosInt
+*/
+
+public class UsuariosRepository implements UsuariosRepositoryInt
+{  
+    private final ArrayList<UsuarioEntradaSalidaDTO> misUsuarios;
+
+    public UsuariosRepository()
+    {        
+        this.misUsuarios = new ArrayList();
+    }
+
+    @Override
+    public boolean registrarUsuario(UsuarioEntradaSalidaDTO objUsuario)
+    {
+        System.out.println("Entrando a registrar usuario");
+        boolean bandera=false;
+        
+        if(misUsuarios.size() < 5)
+        {            
+            bandera=misUsuarios.add(objUsuario);
+            System.out.println("Usuario registrado: identificación: " + objUsuario.getID() + ", nombres: " + objUsuario.getNombres() + ", apellidos. " +objUsuario.getApellidos() );
+        }
+        
+        return bandera;
+    }
+    
+    
+    @Override
+    public int consultarCantidadUsuarios()
+    {
+        System.out.println("Entrando a conultar cantidad de usuarios ingresados");
+        return misUsuarios.size();
+    }
+
+    
+    @Override
+    public UsuarioEntradaSalidaDTO consultarUsuario(int identificacion)
+    {
+        System.out.println("Entrando a consultar usuario con ID: "+identificacion);
+        UsuarioEntradaSalidaDTO objUsuario=null;
+        
+        for (int i = 0; i < this.misUsuarios.size(); i++) {
+            if(this.misUsuarios.get(i).getID()==identificacion)
+            {
+                objUsuario=this.misUsuarios.get(i);
+                break;
+            }
+        }
+        return objUsuario;    
+    }
+    @Override
+    public List<UsuarioEntradaSalidaDTO> ListarUsuariosEntradaSalida()
+    {
+        System.out.println("Entrando a Listar usuarios registrados.");
+        return misUsuarios;
+        
+    }
+}

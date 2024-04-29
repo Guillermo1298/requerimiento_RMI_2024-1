@@ -1,12 +1,13 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package servidor.controladores;
 
 import cliente.DTO.EventoDTO;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+import servidor.DTO.UsuarioEntradaSalidaDTO;
 import servidor.Repositorios.EntradasRepositoryInt;
 
 /**
@@ -89,6 +90,23 @@ public class ControladorGestionarEntradaSalidaImpl extends UnicastRemoteObject i
         this.objRemoto2.notificar(objEventoDTO);
         return codigo;
     }
-    
-    
+
+    @Override
+    public List<UsuarioEntradaSalidaDTO> listarUsuariosIngresados() throws RemoteException {
+        //Lista donde se almacenarán los usuarios que ya han ingresado.
+        List<UsuarioEntradaSalidaDTO> usuariosIngresados = new ArrayList();
+        
+        //Lista donde se obtiene los IDs de los usuarios ingresados.
+        LinkedList<Integer> IdsUsiariosIngresados = objEntradaRepository.retornarUsuariosIngresados();
+        
+        //Objeto donde se va a almacenar el usuario obtenido al comparar el id del usuario ingresado con los usuarios registrados.
+        UsuarioEntradaSalidaDTO usuarioRegistrado;
+        for (int i = 0; i < IdsUsiariosIngresados.size(); i++) {
+            usuarioRegistrado = objRemotoServidorUsuarios.consultarUsuarioEntradaSalida(IdsUsiariosIngresados.get(i));
+            if(usuarioRegistrado != null){
+                usuariosIngresados.add(usuarioRegistrado);
+            }
+        }
+        return usuariosIngresados;
+    }
 }

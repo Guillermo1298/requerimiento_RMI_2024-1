@@ -32,11 +32,7 @@ public class ClienteDeObjetos
             objRemoto2.registrarReferencia(objRemotoCallBack);
             
             Menu objMenu= new Menu(objRemoto1);
-            objMenu.ejecutarMenuPrincipal();
-		
-	}
-	
-	
-	
+            objMenu.ejecutarMenuPrincipal();	
+	}	
 }
 

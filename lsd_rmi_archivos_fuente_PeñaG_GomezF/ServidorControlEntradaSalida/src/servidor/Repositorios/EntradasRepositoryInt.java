@@ -4,6 +4,8 @@
  */
 package servidor.Repositorios;
 
+import java.util.LinkedList;
+
 /**
  *
  * @author GUILLERMO_PEÑA
@@ -13,4 +15,5 @@ public interface EntradasRepositoryInt {
     public boolean registrarEntrada(int identificacion);
     public boolean eliminarEntrada(int identificacion);
     public boolean existeRegistradaIdentificacion(int identificacion);
+    public LinkedList<Integer> retornarUsuariosIngresados();
 }

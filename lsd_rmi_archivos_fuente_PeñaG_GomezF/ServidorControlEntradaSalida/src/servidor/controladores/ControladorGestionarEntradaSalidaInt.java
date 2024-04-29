@@ -6,6 +6,8 @@ package servidor.controladores;
 
 import java.rmi.Remote;
 import java.rmi.RemoteException;
+import java.util.List;
+import servidor.DTO.UsuarioEntradaSalidaDTO;
 
 /**
  *
@@ -14,9 +16,12 @@ import java.rmi.RemoteException;
 //Hereda de la clase Remote, lo cual la convierte en interfaz remota
 public interface ControladorGestionarEntradaSalidaInt extends Remote{
     
-    //Definicion del primer método remoto.
+    //Definicion del primer método remoto que registra la entrada del usuario
     public int registrarEntrada(int identificacion) throws RemoteException;
     
-    //Definicion del segundo método remoto.
+    //Definicion del segundo método remoto que registra la salida de un usuario.
     public int registrarSalida(int identificacion) throws RemoteException;
+    
+    //Definición del tercer método remoto que retorna a la lista de los usuarios ingresados.
+    public List<UsuarioEntradaSalidaDTO> listarUsuariosIngresados() throws RemoteException;
 }

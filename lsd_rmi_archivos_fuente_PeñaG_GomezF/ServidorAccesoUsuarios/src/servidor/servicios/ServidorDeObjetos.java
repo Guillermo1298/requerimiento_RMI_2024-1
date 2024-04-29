@@ -10,7 +10,7 @@ import servidor.utilidades.UtilidadesRegistroS;
 import servidor.utilidades.UtilidadesConsola;
 import java.rmi.RemoteException;
 import servidor.Repositorios.UsuariosRepository;
-import servidor.controladores.ControladorGestorUsuariosEntradaSalidaIml;
+import servidor.controladores.ControladorGestorUsEntSalImpl;
 
 public class ServidorDeObjetos
 {
@@ -26,7 +26,7 @@ public class ServidorDeObjetos
         numPuertoRMIRegistry = UtilidadesConsola.leerEntero(); 
      
         UsuariosRepository objRepository = new UsuariosRepository();
-        ControladorGestorUsuariosEntradaSalidaIml objRemoto = new ControladorGestorUsuariosEntradaSalidaIml(objRepository);//se leasigna el puerto de escucha del objeto remoto
+        ControladorGestorUsEntSalImpl objRemoto = new ControladorGestorUsEntSalImpl(objRepository);//se leasigna el puerto de escucha del objeto remoto
         
         try
         {

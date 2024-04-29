@@ -83,7 +83,7 @@ public class Menu {
     {	
             try
             {
-                    System.out.println("==Listado de Usuarios que ingresaron==");
+                    System.out.println("==Listado de Usuarios registrados==");
                     List<UsuarioEntradaSalidaDTO> usuariosREgistrados  = objRemoto.ListarUsuariosEntradaSalida();
                     System.out.printf("| %-10s | %-15s | %-10s |\n", "ID", "Nombres", "Apellidos");
                     System.out.println("|------------|-----------------|------------|");

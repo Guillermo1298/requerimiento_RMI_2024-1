@@ -7,11 +7,11 @@ import java.util.List;
 import servidor.DTO.UsuarioEntradaSalidaDTO;
 import servidor.Repositorios.UsuariosRepositoryInt;
 
-public class ControladorGestorUsuariosEntradaSalidaIml extends UnicastRemoteObject implements ControladorGestorUsuariosEntradaSalidaInt{
+public class ControladorGestorUsEntSalImpl extends UnicastRemoteObject implements ControladorGestorUsEntSalInt{
     
     private final UsuariosRepositoryInt objUsuariosRepository;
 
-    public ControladorGestorUsuariosEntradaSalidaIml(UsuariosRepositoryInt objUsuariosRepository) throws RemoteException
+    public ControladorGestorUsEntSalImpl(UsuariosRepositoryInt objUsuariosRepository) throws RemoteException
     {
         super(); 
         this.objUsuariosRepository=objUsuariosRepository;

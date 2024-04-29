@@ -48,5 +48,12 @@ public class EntradasRepositoryImpl implements EntradasRepositoryInt{
             }
         }
         return bandera;
-    }  
+    }
+
+    @Override
+    public LinkedList<Integer> retornarUsuariosIngresados() {
+        return identificadores;
+    }
+    
+    
 }

@@ -7,7 +7,7 @@ import servidor.DTO.UsuarioEntradaSalidaDTO;
 
 
 //Hereda de la clase Remote, lo cual la convierte en interfaz remota
-public interface ControladorGestorUsuariosEntradaSalidaInt extends Remote
+public interface ControladorGestorUsEntSalInt extends Remote
 {
     //Definicion del primer método remoto
     public boolean registrarUsuarioEntradaSalida(UsuarioEntradaSalidaDTO objUsuario) throws RemoteException;

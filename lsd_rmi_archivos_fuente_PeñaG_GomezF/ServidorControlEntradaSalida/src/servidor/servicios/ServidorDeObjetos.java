@@ -7,7 +7,7 @@ package servidor.servicios;
 import cliente.utilidades.UtilidadesRegistroC;
 import java.rmi.RemoteException;
 import servidor.Repositorios.EntradasRepositoryImpl;
-import servidor.controladores.ControladorGestionarEntradaSalidaImpl;
+import servidor.controladores.ControladorGestorEntSalImpl;
 import servidor.controladores.ControladorGestorRefRemotAdminImpl;
 import servidor.utilidades.UtilidadesConsola;
 import servidor.utilidades.UtilidadesRegistroS;
@@ -38,8 +38,8 @@ public class ServidorDeObjetos {
                obtenerReferenciaServidorUsuario(direccionIpRMIRegistry, numPuertoRMIRegistry2, "objServicioGestionUsuarios");
         
         EntradasRepositoryImpl objRepositorio=new EntradasRepositoryImpl();
-        ControladorGestionarEntradaSalidaImpl objRemoto2=
-                new ControladorGestionarEntradaSalidaImpl(objRepositorio, objRemotoServidorUsuarios,objRemoto1);
+        ControladorGestorEntSalImpl objRemoto2=
+                new ControladorGestorEntSalImpl(objRepositorio, objRemotoServidorUsuarios,objRemoto1);
         
         try {
             UtilidadesRegistroS.arrancarNS(numPuertoRMIRegistry1);

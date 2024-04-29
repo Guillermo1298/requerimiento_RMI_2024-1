@@ -14,13 +14,13 @@ import servidor.Repositorios.EntradasRepositoryInt;
  *
  * @author GUILLERMO_PEÑA
  */
-public class ControladorGestionarEntradaSalidaImpl extends UnicastRemoteObject implements ControladorGestionarEntradaSalidaInt{
+public class ControladorGestorEntSalImpl extends UnicastRemoteObject implements ControladorGestorEntSalInt{
 
     private final EntradasRepositoryInt objEntradaRepository;
     private final ControladorGestorUsEntSalInt objRemotoServidorUsuarios;
     private final ControladorGestorRefRemotAdminImpl objRemoto2;
 
-    public ControladorGestionarEntradaSalidaImpl(
+    public ControladorGestorEntSalImpl(
             EntradasRepositoryInt objEntradaRepository,
             ControladorGestorUsEntSalInt objRemotoServidorUsuarios,
             ControladorGestorRefRemotAdminImpl objRemoto2) throws RemoteException {

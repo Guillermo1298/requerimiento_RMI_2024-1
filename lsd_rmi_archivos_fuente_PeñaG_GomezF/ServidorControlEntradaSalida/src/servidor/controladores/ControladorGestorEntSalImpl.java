@@ -35,29 +35,30 @@ public class ControladorGestorEntSalImpl extends UnicastRemoteObject implements 
     public int registrarEntrada(int identificacion) throws RemoteException {
         int codigo=0;
         EventoDTO objEventoDTO = null;
-        if (objRemotoServidorUsuarios.consultarUsuarioEntradaSalida(identificacion)==null) {
+        UsuarioEntradaSalidaDTO objUsuario=objRemotoServidorUsuarios.consultarUsuarioEntradaSalida(identificacion);
+             
+        if (objUsuario==null) {
             //si el usuario no existe, se retorna 1.
             System.out.println("El usuario con identificacion "+identificacion+" no existe.");
             codigo=1;
             objEventoDTO = new EventoDTO("Entrada no exitosa, el usuario "+identificacion+" no existe","Entrada");
             
-        } else if(objRemotoServidorUsuarios.consultarUsuarioEntradaSalida(identificacion)!=null) 
+        } else if(objEntradaRepository.existeRegistradaIdentificacion(identificacion)==true) 
         {
-            if (objEntradaRepository.existeRegistradaIdentificacion(identificacion)==true) {
-                //si el usuario existe y está adentro, se retorna 2.
-                System.out.println("El usuario con identificacion "+identificacion+" ya se encuentra dentro de las instalaciones.");
-                codigo = 2;
-                objEventoDTO = new EventoDTO("El usuario con identificacion "+identificacion+" ya se encuentra dentro de las instalaciones.","Entrada");
-                
-            } else {
-                //si el usuario existe y no está adentro, se retorna 3.
-                objEntradaRepository.registrarEntrada(identificacion);
-                codigo = 3;
-                objEventoDTO = new EventoDTO("Entrada exisota del usuario "+identificacion,"Entrada");
-            }
             
+            //si el usuario existe y está adentro, se retorna 2.
+            System.out.println("El usuario con identificacion "+identificacion+" ya se encuentra dentro de las instalaciones.");
+            codigo = 2;
+            objEventoDTO = new EventoDTO("El usuario con identificacion "+identificacion+" ya se encuentra dentro de las instalaciones.","Entrada");
+                
+        }else {
+            //si el usuario existe y no está adentro, se retorna 3.
+            objEntradaRepository.registrarEntrada(identificacion);
+               codigo = 3;
+            objEventoDTO = new EventoDTO("Entrada exisota del usuario "+identificacion,"Entrada");
+                        
         }
-        this.objRemoto2.notificar(objEventoDTO);
+        this.objRemoto2.notificar(objEventoDTO,objUsuario);
         return codigo;
     }
 
@@ -65,29 +66,29 @@ public class ControladorGestorEntSalImpl extends UnicastRemoteObject implements 
     public int registrarSalida(int identificacion) throws RemoteException {
         int codigo = 0;
         EventoDTO objEventoDTO = null;
-        if (objRemotoServidorUsuarios.consultarUsuarioEntradaSalida(identificacion)==null) {
+        UsuarioEntradaSalidaDTO objUsuario=objRemotoServidorUsuarios.consultarUsuarioEntradaSalida(identificacion);
+        
+        if (objUsuario==null) {
             //si el usuario no existe, se retorna 1.
             System.out.println("El usuario con identificacion "+identificacion+" no existe.");
             codigo=1;
             objEventoDTO = new EventoDTO("Salida no exitosa, el usuario "+identificacion+" no existe","Salida");
-        } else if(objRemotoServidorUsuarios.consultarUsuarioEntradaSalida(identificacion)!=null) 
+        } else if(objEntradaRepository.existeRegistradaIdentificacion(identificacion)==false) 
         {
-            if (objEntradaRepository.existeRegistradaIdentificacion(identificacion)==false) {
                 
-                //si el usuario existe y no está adentro, se retorna 2.
-                System.out.println("El usuario con identificacion "+identificacion+" no está dentro de las instalaciones.");
-                codigo = 2;
-                objEventoDTO = new EventoDTO("El usuario con identificacion "+identificacion+" no está dentro de las instalaciones.","Salida");
+            //si el usuario existe y no está adentro, se retorna 2.
+            System.out.println("El usuario con identificacion "+identificacion+" no está dentro de las instalaciones.");
+            codigo = 2;
+            objEventoDTO = new EventoDTO("El usuario con identificacion "+identificacion+" no está dentro de las instalaciones.","Salida");
                 
-            } else {
-                //si el usuario existe y está adentro, se retorna 3.
-                objEntradaRepository.eliminarEntrada(identificacion);
-                codigo = 3;
-                objEventoDTO = new EventoDTO("Salida exisota del usuario "+identificacion,"Salida");
-            }
+        } else {
+            //si el usuario existe y está adentro, se retorna 3.
+            objEntradaRepository.eliminarEntrada(identificacion);
+            codigo = 3;
+            objEventoDTO = new EventoDTO("Salida exisota del usuario "+identificacion,"Salida");
             
         }
-        this.objRemoto2.notificar(objEventoDTO);
+        this.objRemoto2.notificar(objEventoDTO, objUsuario);
         return codigo;
     }
 

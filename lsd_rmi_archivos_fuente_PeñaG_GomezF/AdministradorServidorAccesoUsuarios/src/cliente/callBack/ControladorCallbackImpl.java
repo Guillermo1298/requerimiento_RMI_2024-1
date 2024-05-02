@@ -7,6 +7,7 @@ package cliente.callBack;
 import cliente.DTO.EventoDTO;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
+import servidor.DTO.UsuarioEntradaSalidaDTO;
 
 /**
  *
@@ -20,9 +21,15 @@ public class ControladorCallbackImpl extends UnicastRemoteObject implements Cont
     }
     
     @Override
-    public void notificar(EventoDTO objEvento) throws RemoteException {
+    public void notificar(EventoDTO objEvento, UsuarioEntradaSalidaDTO objUsuario) throws RemoteException {
         System.out.println("Mensaje: "+objEvento.getMensaje());
         System.out.println("Acción del usuario: "+objEvento.getAccion());
+        
+        if (objUsuario != null) {
+            System.out.printf("| %-10s | %-15s | %-10s |\n", "ID", "Nombres", "Apellidos");
+            System.out.println("|------------|-----------------|------------|");
+            System.out.printf("| %-10s | %-15s | %-10s |\n",objUsuario.getID(),objUsuario.getNombres(),objUsuario.getApellidos());
+        }
     }
     
 }

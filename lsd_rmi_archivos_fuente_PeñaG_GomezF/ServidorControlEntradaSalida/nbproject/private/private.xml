@@ -2,6 +2,13 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/C:/Users/GUILLERMO_PEÑA/Documents/SEMESTRE%207/Lab.%20SISTEMAS%20DISTRIBUIDOS%202/RMI/requerimiento/requerimiento_RMI_2024-1/lsd_rmi_archivos_fuente_PeñaG_GomezF/ServidorControlEntradaSalida/src/cliente/DTO/EventoDTO.java</file>
+            <file>file:/C:/Users/GUILLERMO_PEÑA/Documents/SEMESTRE%207/Lab.%20SISTEMAS%20DISTRIBUIDOS%202/RMI/requerimiento/requerimiento_RMI_2024-1/lsd_rmi_archivos_fuente_PeñaG_GomezF/ServidorControlEntradaSalida/src/servidor/controladores/ControladorGestorEntSalInt.java</file>
+            <file>file:/C:/Users/GUILLERMO_PEÑA/Documents/SEMESTRE%207/Lab.%20SISTEMAS%20DISTRIBUIDOS%202/RMI/requerimiento/requerimiento_RMI_2024-1/lsd_rmi_archivos_fuente_PeñaG_GomezF/ServidorControlEntradaSalida/src/cliente/callBack/ControladorCallbackInt.java</file>
+            <file>file:/C:/Users/GUILLERMO_PEÑA/Documents/SEMESTRE%207/Lab.%20SISTEMAS%20DISTRIBUIDOS%202/RMI/requerimiento/requerimiento_RMI_2024-1/lsd_rmi_archivos_fuente_PeñaG_GomezF/ServidorControlEntradaSalida/src/servidor/controladores/ControladorGestorRefRemotAdminImpl.java</file>
+            <file>file:/C:/Users/GUILLERMO_PEÑA/Documents/SEMESTRE%207/Lab.%20SISTEMAS%20DISTRIBUIDOS%202/RMI/requerimiento/requerimiento_RMI_2024-1/lsd_rmi_archivos_fuente_PeñaG_GomezF/ServidorControlEntradaSalida/src/servidor/controladores/ControladorGestorEntSalImpl.java</file>
+            <file>file:/C:/Users/GUILLERMO_PEÑA/Documents/SEMESTRE%207/Lab.%20SISTEMAS%20DISTRIBUIDOS%202/RMI/requerimiento/requerimiento_RMI_2024-1/lsd_rmi_archivos_fuente_PeñaG_GomezF/ServidorControlEntradaSalida/src/servidor/Repositorios/EntradasRepositoryImpl.java</file>
+        </group>
     </open-files>
 </project-private>

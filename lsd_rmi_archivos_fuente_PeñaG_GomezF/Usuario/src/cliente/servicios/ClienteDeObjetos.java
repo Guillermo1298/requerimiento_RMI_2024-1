@@ -6,14 +6,14 @@ package cliente.servicios;
 
 import cliente.utilidades.UtilidadesRegistroC;
 import cliente.vista.Menu;
-import servidor.controladores.ControladorGestionarEntradaSalidaInt;
+import servidor.controladores.ControladorGestorEntSalInt;
 /**
  *
  * @author GUILLERMO_PEÑA
  */
 public class ClienteDeObjetos {
 
-    private static ControladorGestionarEntradaSalidaInt objRemoto;
+    private static ControladorGestorEntSalInt objRemoto;
     /**
      * @param args the command line arguments
      */
@@ -26,7 +26,7 @@ public class ClienteDeObjetos {
             System.out.println("Cual es el número de puerto por el cual escucha el rmiregistry del servidor de entrada y salida");
             numPuertoRMIRegistry = cliente.utilidades.UtilidadesConsola.leerEntero(); 
             
-            objRemoto = (ControladorGestionarEntradaSalidaInt) UtilidadesRegistroC.obtenerObjRemoto(direccionIpRMIRegistry,numPuertoRMIRegistry, "objServicioEntradaSalida");
+            objRemoto = (ControladorGestorEntSalInt) UtilidadesRegistroC.obtenerObjRemoto(direccionIpRMIRegistry,numPuertoRMIRegistry, "objServicioEntradaSalida");
             Menu objMenu= new Menu(objRemoto);
             objMenu.ejecutarMenuPrincipal();
     }

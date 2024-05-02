@@ -7,16 +7,16 @@ package cliente.vista;
 import cliente.utilidades.UtilidadesConsola;
 import java.rmi.RemoteException;
 import java.util.List;
-import servidor.controladores.ControladorGestionarEntradaSalidaInt;
+import servidor.controladores.ControladorGestorEntSalInt;
 
 /**
  *
  * @author GUILLERMO_PEÑA
  */
 public class Menu {
-    private final ControladorGestionarEntradaSalidaInt objRemoto;
+    private final ControladorGestorEntSalInt objRemoto;
     
-    public Menu(ControladorGestionarEntradaSalidaInt objRemoto)
+    public Menu(ControladorGestorEntSalInt objRemoto)
     {
         this.objRemoto=objRemoto;
     }

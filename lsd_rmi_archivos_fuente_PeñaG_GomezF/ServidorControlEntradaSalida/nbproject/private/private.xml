@@ -2,16 +2,6 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/C:/Users/GUILLERMO_PEÑA/Documents/SEMESTRE%207/Lab.%20SISTEMAS%20DISTRIBUIDOS%202/RMI/requerimiento/requerimiento_RMI_2024-1/lsd_rmi_archivos_fuente_PeñaG_GomezF/ServidorControlEntradaSalida/src/cliente/DTO/EventoDTO.java</file>
-            <file>file:/C:/Users/GUILLERMO_PEÑA/Documents/SEMESTRE%207/Lab.%20SISTEMAS%20DISTRIBUIDOS%202/RMI/requerimiento/requerimiento_RMI_2024-1/lsd_rmi_archivos_fuente_PeñaG_GomezF/ServidorControlEntradaSalida/src/servidor/controladores/ControladorGestorUsEntSalInt.java</file>
-            <file>file:/C:/Users/GUILLERMO_PEÑA/Documents/SEMESTRE%207/Lab.%20SISTEMAS%20DISTRIBUIDOS%202/RMI/requerimiento/requerimiento_RMI_2024-1/lsd_rmi_archivos_fuente_PeñaG_GomezF/ServidorControlEntradaSalida/src/servidor/controladores/ControladorGestorRefRemotAdminImpl.java</file>
-            <file>file:/C:/Users/GUILLERMO_PEÑA/Documents/SEMESTRE%207/Lab.%20SISTEMAS%20DISTRIBUIDOS%202/RMI/requerimiento/requerimiento_RMI_2024-1/lsd_rmi_archivos_fuente_PeñaG_GomezF/ServidorControlEntradaSalida/src/servidor/servicios/ServidorDeObjetos.java</file>
-            <file>file:/C:/Users/GUILLERMO_PEÑA/Documents/SEMESTRE%207/Lab.%20SISTEMAS%20DISTRIBUIDOS%202/RMI/requerimiento/requerimiento_RMI_2024-1/lsd_rmi_archivos_fuente_PeñaG_GomezF/ServidorControlEntradaSalida/src/servidor/controladores/ControladorGestionarEntradaSalidaInt.java</file>
-            <file>file:/C:/Users/GUILLERMO_PEÑA/Documents/SEMESTRE%207/Lab.%20SISTEMAS%20DISTRIBUIDOS%202/RMI/requerimiento/requerimiento_RMI_2024-1/lsd_rmi_archivos_fuente_PeñaG_GomezF/ServidorControlEntradaSalida/src/servidor/Repositorios/EntradasRepositoryInt.java</file>
-            <file>file:/C:/Users/GUILLERMO_PEÑA/Documents/SEMESTRE%207/Lab.%20SISTEMAS%20DISTRIBUIDOS%202/RMI/requerimiento/requerimiento_RMI_2024-1/lsd_rmi_archivos_fuente_PeñaG_GomezF/ServidorControlEntradaSalida/src/servidor/controladores/ControladorGestionarEntradaSalidaImpl.java</file>
-            <file>file:/C:/Users/GUILLERMO_PEÑA/Documents/SEMESTRE%207/Lab.%20SISTEMAS%20DISTRIBUIDOS%202/RMI/requerimiento/requerimiento_RMI_2024-1/lsd_rmi_archivos_fuente_PeñaG_GomezF/ServidorControlEntradaSalida/src/servidor/controladores/ControladorGestorRefRemotAdminInt.java</file>
-            <file>file:/C:/Users/GUILLERMO_PEÑA/Documents/SEMESTRE%207/Lab.%20SISTEMAS%20DISTRIBUIDOS%202/RMI/requerimiento/requerimiento_RMI_2024-1/lsd_rmi_archivos_fuente_PeñaG_GomezF/ServidorControlEntradaSalida/src/servidor/Repositorios/EntradasRepositoryImpl.java</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>

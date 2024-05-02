@@ -7,6 +7,7 @@ package cliente.callBack;
 import cliente.DTO.EventoDTO;
 import java.rmi.Remote;
 import java.rmi.RemoteException;
+import servidor.DTO.UsuarioEntradaSalidaDTO;
 
 
 /**
@@ -16,5 +17,5 @@ import java.rmi.RemoteException;
 
 //Hereda de la clase Remote, lo cual convierte en interfaz remota
 public interface ControladorCallbackInt extends Remote{
-    public void notificar(EventoDTO objEvento) throws RemoteException;
+    public void notificar(EventoDTO objEvento, UsuarioEntradaSalidaDTO objUsuario) throws RemoteException;
 }

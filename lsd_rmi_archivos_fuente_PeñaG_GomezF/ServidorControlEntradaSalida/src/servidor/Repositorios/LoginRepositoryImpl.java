@@ -15,7 +15,7 @@ public class LoginRepositoryImpl implements LoginRepositoryInt{
     private final LoginDTO objLogin;
 
     public LoginRepositoryImpl() {
-        this.objLogin = new LoginDTO("adminSerAccUser","12345678");
+        this.objLogin = new LoginDTO("adminSerEntSal","12345678");
     }
     
     @Override

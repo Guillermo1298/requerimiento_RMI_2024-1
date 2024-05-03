@@ -45,7 +45,9 @@ public class ClienteDeObjetos
 
                         LoginDTO objLogin = new LoginDTO(usuario, contrasenia);
                         if(objRemoto3.iniciarSesion(objLogin))
-                            bandera = true;                    
+                            bandera = true; 
+                        else
+                            System.out.println("\nUsuario o contraseña incorrectos, por favor intente de nuevo....\n");
                     } catch (RemoteException e) {
                         System.err.println("la operación no se pudo completar, por favor intente de nuevo..... "+e.getMessage());
                     }

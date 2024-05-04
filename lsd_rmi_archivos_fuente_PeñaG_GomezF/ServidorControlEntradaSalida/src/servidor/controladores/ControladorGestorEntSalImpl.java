@@ -104,10 +104,8 @@ public class ControladorGestorEntSalImpl extends UnicastRemoteObject implements 
         UsuarioEntradaSalidaDTO usuarioRegistrado;
         for (int i = 0; i < IdsUsiariosIngresados.size(); i++) {
             usuarioRegistrado = objRemotoServidorUsuarios.consultarUsuarioEntradaSalida(IdsUsiariosIngresados.get(i));
-            if(usuarioRegistrado != null){
                 usuariosIngresados.add(usuarioRegistrado);
             }
-        }
         return usuariosIngresados;
     }
 }

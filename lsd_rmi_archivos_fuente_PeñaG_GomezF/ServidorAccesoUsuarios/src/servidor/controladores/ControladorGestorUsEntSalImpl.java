@@ -47,4 +47,9 @@ public class ControladorGestorUsEntSalImpl extends UnicastRemoteObject implement
     public void registrarFechaIngreso(Date fechaIngreso, int identificador) throws RemoteException {
         objUsuariosRepository.registrarFechaIngreso(fechaIngreso, identificador);
     }
+
+    @Override
+    public void eliminarUsuarioEntradaSalida(int identificador) throws RemoteException {
+        objUsuariosRepository.eliminarUsuarioEntradaSalida(identificador);
+    }
 }

@@ -26,9 +26,13 @@ public class ControladorCallbackImpl extends UnicastRemoteObject implements Cont
         System.out.println("Acción del usuario: "+objEvento.getAccion());
         
         if (objUsuario != null) {
-            System.out.printf("| %-10s | %-15s | %-10s |\n", "ID", "Nombres", "Apellidos");
+            System.out.printf("| %-10s | %-15s | %-10s | %-10s |\n", "ID", "Nombres", "Apellidos","Rol");
             System.out.println("|------------|-----------------|------------|");
-            System.out.printf("| %-10s | %-15s | %-10s |\n",objUsuario.getID(),objUsuario.getNombres(),objUsuario.getApellidos());
+            System.out.printf("| %-10s | %-15s | %-10s | %-10s |\n",
+                    objUsuario.getID(),
+                    objUsuario.getNombres(),
+                    objUsuario.getApellidos(),
+                    objUsuario.getRol());
         }
     }
     

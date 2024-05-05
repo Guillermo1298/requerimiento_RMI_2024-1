@@ -27,9 +27,15 @@ public interface ControladorGestorUsEntSalInt extends Remote{
     public UsuarioEntradaSalidaDTO consultarUsuarioEntradaSalida(int identificacion)throws RemoteException;
      //cada definición del método debe especificar que puede lanzar la excepción java.rmi.RemoteException
     
-    //Definicion del segundo método remoto
+    //Definicion del cuarto método remoto
     public List<UsuarioEntradaSalidaDTO> ListarUsuariosEntradaSalida()throws RemoteException;
     //cada definición del método debe especificar que puede lanzar la excepción java.rmi.RemoteException
     
+    //Definicion del quinto método remoto
+    public void eliminarUsuarioEntradaSalida(int identificador)throws RemoteException;
+    //cada definición del método debe especificar que puede lanzar la excepción java.rmi.RemoteException
+    
+    //Definicion del sexto método remoto
     public void registrarFechaIngreso(Date fechaIngreso, int identificador)throws RemoteException;
+    //cada definición del método debe especificar que puede lanzar la excepción java.rmi.RemoteException
 }

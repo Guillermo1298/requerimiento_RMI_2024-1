@@ -12,6 +12,7 @@ public interface UsuariosRepositoryInt
     public int consultarCantidadUsuarios();
     public UsuarioEntradaSalidaDTO consultarUsuario(int identificacion);
     public List<UsuarioEntradaSalidaDTO> ListarUsuariosEntradaSalida();
+    public void eliminarUsuarioEntradaSalida(int identificador);
     public void registrarFechaIngreso(Date fechaIngreso, int identificador);
 }
 

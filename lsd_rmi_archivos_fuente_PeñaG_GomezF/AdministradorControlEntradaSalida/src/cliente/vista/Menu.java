@@ -6,6 +6,7 @@ package cliente.vista;
 
 import cliente.utilidades.UtilidadesConsola;
 import java.rmi.RemoteException;
+import java.text.SimpleDateFormat;
 import java.util.List;
 import servidor.DTO.UsuarioEntradaSalidaDTO;
 import servidor.controladores.ControladorGestorEntSalInt;
@@ -44,16 +45,22 @@ public class Menu {
     
     private void listarUsuarios(){
         try {
+            SimpleDateFormat formatoFecha = new SimpleDateFormat("dd 'de' MMMM 'de' yyyy");
+            SimpleDateFormat formatoHora = new SimpleDateFormat("hh:mm a");
             
+            String fechaFormateada;
+            String horaFormateada;
             System.out.println("==Listado de Usuarios que ingresaron==");
             List<UsuarioEntradaSalidaDTO> usuariosIngresados = objRemoto.listarUsuariosIngresados();
             if (usuariosIngresados.isEmpty()) {
                 System.out.println("No hay usuarios dentro de las instalaciones.");
             } else {
-                System.out.printf("| %-10s | %-15s | %-10s |\n", "ID", "Nombres", "Apellidos");
-                System.out.println("|------------|-----------------|------------|");
+                System.out.printf("| %-10s | %-15s | %-20s |\n", "ID", "Hora entrada", "Fecha Entrada");
+                System.out.println("|------------|-----------------|----------------------|");
                 for (int i = 0; i < usuariosIngresados.size(); i++) {
-                    System.out.printf("| %-10s | %-15s | %-10s |\n",usuariosIngresados.get(i).getID(),usuariosIngresados.get(i).getNombres(),usuariosIngresados.get(i).getApellidos());
+                    fechaFormateada = formatoFecha.format(usuariosIngresados.get(i).getFechaRegistro());
+                    horaFormateada = formatoHora.format(usuariosIngresados.get(i).getFechaRegistro());
+                    System.out.printf("| %-10s | %-15s | %-20s |\n",usuariosIngresados.get(i).getID(),horaFormateada,fechaFormateada);
                 }
             }
         } catch (RemoteException e) {

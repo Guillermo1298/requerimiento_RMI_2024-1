@@ -54,14 +54,14 @@ public class Menu {
     {
         try
         {
-                Date fechaRegistro = new Date();
+                Date fechaRegistro = null;
                 System.out.println("==Registro del Cliente==");
                 int id = validarCredenciales();
                 System.out.println("Ingrese el nombre completo ");
                 String nombres = UtilidadesConsola.leerCadena();
                 System.out.println("Ingrese los apellidos ");
                 String apellidos = UtilidadesConsola.leerCadena();
-                int rol = escogerRol();
+                String rol = escogerRol();
                 UsuarioEntradaSalidaDTO objUsuario = new UsuarioEntradaSalidaDTO(id, nombres, apellidos, rol, fechaRegistro);
 
                 boolean valor = objRemoto.registrarUsuarioEntradaSalida(objUsuario);
@@ -120,22 +120,25 @@ public class Menu {
         }
     }
     
-    int escogerRol()
+    String escogerRol()
     {
-        int rol;
+        int opcion;
+        String rol = null;
+        System.out.println("==Rol==");
+        System.out.println("1. Administrador");			
+        System.out.println("2. Docente");
+        System.out.println("3. Estudiante");
         do { 
-            System.out.println("==Rol==");
-            System.out.println("1. Administrador");			
-            System.out.println("2. Docente");
-            System.out.println("3. Estudiante");
 
-            rol = UtilidadesConsola.leerEntero();
+            opcion = UtilidadesConsola.leerEntero();
             
-            if(rol>3 || rol<1){
-                System.out.println("Opcion no valida, por favor verifique");
-            }
-            
-        } while (rol>3 || rol<1);
+            switch (opcion) {
+                case 1 -> rol = "Administrador";
+                case 2 -> rol = "Docente";
+                case 3 -> rol = "Estudiante";
+                default -> System.out.println("Opcion fuera de rango.");
+            }            
+        } while (opcion>3 || opcion<1);
         return rol;
     }
     

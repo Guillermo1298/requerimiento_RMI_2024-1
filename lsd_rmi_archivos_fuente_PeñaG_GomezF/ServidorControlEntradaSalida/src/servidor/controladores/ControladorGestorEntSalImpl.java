@@ -5,6 +5,7 @@ import cliente.DTO.EventoDTO;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 import servidor.DTO.UsuarioEntradaSalidaDTO;
@@ -54,7 +55,8 @@ public class ControladorGestorEntSalImpl extends UnicastRemoteObject implements 
         }else {
             //si el usuario existe y no está adentro, se retorna 3.
             objEntradaRepository.registrarEntrada(identificacion);
-               codigo = 3;
+            objRemotoServidorUsuarios.registrarFechaIngreso(new Date(), identificacion);
+            codigo = 3;
             objEventoDTO = new EventoDTO("Entrada exisota del usuario "+identificacion,"Entrada");
                         
         }
@@ -103,7 +105,7 @@ public class ControladorGestorEntSalImpl extends UnicastRemoteObject implements 
         //Objeto donde se va a almacenar el usuario obtenido al comparar el id del usuario ingresado con los usuarios registrados.
         UsuarioEntradaSalidaDTO usuarioRegistrado;
         for (int i = 0; i < IdsUsiariosIngresados.size(); i++) {
-            usuarioRegistrado = objRemotoServidorUsuarios.consultarUsuarioEntradaSalida(IdsUsiariosIngresados.get(i));
+                usuarioRegistrado = objRemotoServidorUsuarios.consultarUsuarioEntradaSalida(IdsUsiariosIngresados.get(i));
                 usuariosIngresados.add(usuarioRegistrado);
             }
         return usuariosIngresados;

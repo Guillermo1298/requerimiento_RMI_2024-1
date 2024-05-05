@@ -1,6 +1,5 @@
 package servidor.Repositorios;
 
-import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -68,9 +67,22 @@ public class UsuariosRepository implements UsuariosRepositoryInt
 
     @Override
     public void registrarFechaIngreso(Date fechaIngreso, int identificador) {
+        System.out.println("Entrando a  actualizacion de fecha de ingreso a las instalaciones.");
         for (int i = 0; i < this.misUsuarios.size(); i++) {
             if (this.misUsuarios.get(i).getID()==identificador) {
                 this.misUsuarios.get(i).setFechaRegistro(fechaIngreso);
+                break;
+            }
+        }
+    }
+
+    @Override
+    public void eliminarUsuarioEntradaSalida(int identificador) {
+        System.out.println("Entrando a Eliminar Usuario.");
+        for (int i = 0; i < this.misUsuarios.size(); i++) {
+            if (this.misUsuarios.get(i).getID()==identificador) {
+                this.misUsuarios.remove(i);
+                System.out.println("Usuario Eliminado con Id: "+identificador);
                 break;
             }
         }

@@ -25,29 +25,22 @@ public class Menu {
             System.out.println("1. Registrar Usuario que ingresa");			
             System.out.println("2. Listar usuarios que ingresan");
             System.out.println("3. Consultar usuario");
-            System.out.println("4. Salir");
+            System.out.println("4. Eliminar Usuario que ingresa");
+            System.out.println("5. Salir");
 
             opcion = UtilidadesConsola.leerEntero();
 
             switch(opcion)
             {
-                case 1:
-                        Opcion1();
-                        break;
-                case 2:
-                        Opcion2();
-                        break;	
-                case 3:
-                        Opcion3();
-                        break;
-                case 4:
-                        System.out.println("Salir...");
-                        break;
-                default:
-                        System.out.println("Opción incorrecta");
+                case 1 -> Opcion1();
+                case 2 -> Opcion2();
+                case 3 -> Opcion3();
+                case 4 -> Opcion4();
+                case 5 -> System.out.println("Saliendo.....");
+                default -> System.out.println("Opción incorrecta");
             }
 
-        }while(opcion != 4);
+        }while(opcion != 5);
     }
 
     private void Opcion1() 
@@ -55,7 +48,7 @@ public class Menu {
         try
         {
                 Date fechaRegistro = null;
-                System.out.println("==Registro del Cliente==");
+                System.out.println("\n==Registro de Usuario==");
                 int id = validarCredenciales();
                 System.out.println("Ingrese el nombre completo ");
                 String nombres = UtilidadesConsola.leerCadena();
@@ -82,12 +75,16 @@ public class Menu {
     {	
             try
             {
-                    System.out.println("==Listado de Usuarios registrados==");
+                    System.out.println("\n==Listado de Usuarios registrados==");
                     List<UsuarioEntradaSalidaDTO> usuariosREgistrados  = objRemoto.ListarUsuariosEntradaSalida();
                     System.out.printf("| %-10s | %-15s | %-10s |\n", "ID", "Nombres", "Apellidos");
                     System.out.println("|------------|-----------------|------------|");
                     for (int i = 0; i < usuariosREgistrados.size(); i++) {
-                        System.out.printf("| %-10s | %-15s | %-10s |\n",usuariosREgistrados.get(i).getID(),usuariosREgistrados.get(i).getNombres(),usuariosREgistrados.get(i).getApellidos());
+                        System.out.printf(
+                                "| %-10s | %-15s | %-10s |\n",
+                                usuariosREgistrados.get(i).getID(),
+                                usuariosREgistrados.get(i).getNombres(),
+                                usuariosREgistrados.get(i).getApellidos());
                     }
             }
             catch(RemoteException e)
@@ -101,7 +98,7 @@ public class Menu {
     {
         try
         {
-            System.out.println("==Consulta de un Cliente==");
+            System.out.println("\n==Consulta de un Usuario==");
             System.out.println("Ingrese la identificacion");
             int id = UtilidadesConsola.leerEntero();			
 
@@ -120,6 +117,36 @@ public class Menu {
         }
     }
     
+    private void Opcion4(){
+        try {
+            System.out.println("\n==Eliminacion de un Usuario==");
+            System.out.println("Ingrese la identificacion");
+            int id = UtilidadesConsola.leerEntero(), opcion;            
+            
+            if(objRemoto.consultarUsuarioEntradaSalida(id) == null){
+                System.out.println("Usuario no registrado en el sistema.");
+            }else{
+                do {                    
+                    System.out.println("El usuario se encuetra registrado. Desea borrarlo del sistema: 1. SI 2.No:");
+                    opcion = UtilidadesConsola.leerEntero();
+                    switch(opcion)
+                    {
+                        case 1:
+                            objRemoto.eliminarUsuarioEntradaSalida(id);
+                            System.out.println("El usuario a sido eliminado exitosamente.");
+                            break;
+                        case 2:
+                            break;
+                        default: 
+                            System.out.println("Opción incorrecta......");
+                            break;
+                    }
+                } while (opcion != 1 && opcion != 2);
+            }
+        } catch (RemoteException e) {
+            System.out.println("La operacion no se pudo completar, intente nuevamente...");
+        }
+    }
     String escogerRol()
     {
         int opcion;

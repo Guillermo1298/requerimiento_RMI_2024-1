@@ -62,6 +62,7 @@ public class Menu {
                     horaFormateada = formatoHora.format(usuariosIngresados.get(i).getFechaRegistro());
                     System.out.printf("| %-10s | %-15s | %-20s |\n",usuariosIngresados.get(i).getID(),horaFormateada,fechaFormateada);
                 }
+                System.out.println("\nCantidad de usuarios al interior de las instalaciones: "+usuariosIngresados.size());
             }
         } catch (RemoteException e) {
             System.out.println("La operación no se pudo completar, intente nuevamente...");

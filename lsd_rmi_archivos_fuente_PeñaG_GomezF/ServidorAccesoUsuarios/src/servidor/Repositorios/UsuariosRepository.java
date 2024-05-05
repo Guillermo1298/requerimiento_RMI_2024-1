@@ -2,6 +2,7 @@ package servidor.Repositorios;
 
 import java.rmi.RemoteException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import servidor.DTO.UsuarioEntradaSalidaDTO;
 
@@ -63,5 +64,15 @@ public class UsuariosRepository implements UsuariosRepositoryInt
         System.out.println("Entrando a Listar usuarios registrados.");
         return misUsuarios;
         
+    }
+
+    @Override
+    public void registrarFechaIngreso(Date fechaIngreso, int identificador) {
+        for (int i = 0; i < this.misUsuarios.size(); i++) {
+            if (this.misUsuarios.get(i).getID()==identificador) {
+                this.misUsuarios.get(i).setFechaRegistro(fechaIngreso);
+                break;
+            }
+        }
     }
 }

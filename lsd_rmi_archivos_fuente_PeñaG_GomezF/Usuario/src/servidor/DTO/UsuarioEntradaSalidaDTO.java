@@ -15,10 +15,10 @@ public class UsuarioEntradaSalidaDTO implements Serializable{
         private int ID;
     private String nombres;
     private String apellidos;
-    private int rol;
+    private String rol;
     private Date fechaRegistro;
 
-    public UsuarioEntradaSalidaDTO(int ID, String nombres, String apellidos, int rol, Date fechaRegistro) {
+    public UsuarioEntradaSalidaDTO(int ID, String nombres, String apellidos, String rol, Date fechaRegistro) {
         this.ID = ID;
         this.nombres = nombres;
         this.apellidos = apellidos;
@@ -50,11 +50,11 @@ public class UsuarioEntradaSalidaDTO implements Serializable{
         this.apellidos = apellidos;
     }
 
-    public int getRol() {
+    public String getRol() {
         return rol;
     }
 
-    public void setRol(int rol) {
+    public void setRol(String rol) {
         this.rol = rol;
     }
 

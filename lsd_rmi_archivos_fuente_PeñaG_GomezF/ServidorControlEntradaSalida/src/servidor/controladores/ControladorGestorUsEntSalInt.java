@@ -6,6 +6,7 @@ package servidor.controladores;
 
 import java.rmi.Remote;
 import java.rmi.RemoteException;
+import java.util.Date;
 import java.util.List;
 import servidor.DTO.UsuarioEntradaSalidaDTO;
 
@@ -29,4 +30,6 @@ public interface ControladorGestorUsEntSalInt extends Remote{
     //Definicion del segundo método remoto
     public List<UsuarioEntradaSalidaDTO> ListarUsuariosEntradaSalida()throws RemoteException;
     //cada definición del método debe especificar que puede lanzar la excepción java.rmi.RemoteException
+    
+    public void registrarFechaIngreso(Date fechaIngreso, int identificador)throws RemoteException;
 }

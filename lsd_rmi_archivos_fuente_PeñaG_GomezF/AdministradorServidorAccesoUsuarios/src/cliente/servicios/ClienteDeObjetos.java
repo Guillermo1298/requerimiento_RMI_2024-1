@@ -37,15 +37,12 @@ public class ClienteDeObjetos
             System.out.println("\n== Inicio de sesión ==");
             do {  
                 try {
-                    System.out.println("Usuario:");
-                    usuario = cliente.utilidades.UtilidadesConsola.leerCadena();
-                    System.out.println("Cotraseña:");
-                    contrasenia = cliente.utilidades.UtilidadesConsola.leerCadena();
+                    usuario = validarCredenciales("Usuario");
+                    contrasenia = validarCredenciales("Contraseña");
 
                     LoginDTO objLogin = new LoginDTO(usuario, contrasenia);
-                    if (!validarCredenciales(usuario, contrasenia))
-                        System.err.println("Error: Usuario o contraseña fuera del rango de caracteres permitidos.....");
-                    else if(objRemoto3.iniciarSesion(objLogin))
+                    
+                    if(objRemoto3.iniciarSesion(objLogin))
                         bandera = true; 
                     else
                         System.out.println("\nUsuario o contraseña incorrectos, por favor intente de nuevo....\n");
@@ -61,14 +58,19 @@ public class ClienteDeObjetos
         objMenu.ejecutarMenuPrincipal();	
     }	
     
-    public static boolean validarCredenciales(String usuario, String contrasenia){
+    public static String validarCredenciales(String credencial){
+        String contenido;
         
-        // Validar longitud del usuario y la contraseña
-        boolean longitudUsuarioValida = usuario.length() >= 8 && usuario.length() <= 15;
-        boolean longitudContrasenaValida = contrasenia.length() >= 8 && contrasenia.length() <= 15;
-
-        // Devolver true si tanto el usuario como la contraseña son válidos
-        return longitudUsuarioValida && longitudContrasenaValida;        
+        do {            
+            System.out.println(credencial+": ");
+            contenido = cliente.utilidades.UtilidadesConsola.leerCadena();
+            if(!(contenido.length() >= 8 && contenido.length() <= 15))
+                System.err.println("Error: "+credencial+" fuera del rango de caracteres permitidos.....");  
+            else
+                break;
+        } while (true);
+        // Devolver true si tanto el usuario cuando la credencial es válidos
+        return contenido;        
     }
 }
 

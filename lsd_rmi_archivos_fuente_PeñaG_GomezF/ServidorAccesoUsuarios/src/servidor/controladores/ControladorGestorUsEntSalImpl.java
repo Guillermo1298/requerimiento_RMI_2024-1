@@ -3,6 +3,7 @@ package servidor.controladores;
 
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
+import java.util.Date;
 import java.util.List;
 import servidor.DTO.UsuarioEntradaSalidaDTO;
 import servidor.Repositorios.UsuariosRepositoryInt;
@@ -34,10 +35,16 @@ public class ControladorGestorUsEntSalImpl extends UnicastRemoteObject implement
     {
         return this.objUsuariosRepository.consultarUsuario(identificacion);
     }
+    
     @Override
     public List<UsuarioEntradaSalidaDTO> ListarUsuariosEntradaSalida()throws RemoteException
     {
         return this.objUsuariosRepository.ListarUsuariosEntradaSalida();
         
+    }
+
+    @Override
+    public void registrarFechaIngreso(Date fechaIngreso, int identificador) throws RemoteException {
+        objUsuariosRepository.registrarFechaIngreso(fechaIngreso, identificador);
     }
 }

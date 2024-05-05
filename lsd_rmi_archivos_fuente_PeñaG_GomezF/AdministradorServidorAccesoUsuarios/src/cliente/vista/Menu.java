@@ -56,8 +56,7 @@ public class Menu {
         {
                 Date fechaRegistro = new Date();
                 System.out.println("==Registro del Cliente==");
-                System.out.println("Ingrese la identificacion");
-                int id = UtilidadesConsola.leerEntero();
+                int id = validarCredenciales();
                 System.out.println("Ingrese el nombre completo ");
                 String nombres = UtilidadesConsola.leerCadena();
                 System.out.println("Ingrese los apellidos ");
@@ -138,5 +137,26 @@ public class Menu {
             
         } while (rol>3 || rol<1);
         return rol;
+    }
+    
+    public int validarCredenciales() throws RemoteException{
+        int Id;
+        String numeroACadena;
+        UsuarioEntradaSalidaDTO objUserRegistrado = null;
+        do {            
+            System.out.println("Ingrese la identificacion");
+            Id = UtilidadesConsola.leerEntero();
+            numeroACadena = String.valueOf(Id);
+            if (!(numeroACadena.length() == 8)) {
+                System.err.println("Error: El Identificador debe ser de 8 caracteres");
+            }  
+            else{
+                objUserRegistrado = objRemoto.consultarUsuarioEntradaSalida(Id);
+                if(objUserRegistrado != null){
+                    System.out.println("El usuario con el ID "+Id+" ya se encuentra registrado en el sistema.");
+                }
+            }
+        } while (!(numeroACadena.length() == 8) || (objUserRegistrado != null));
+        return Id;        
     }
 }

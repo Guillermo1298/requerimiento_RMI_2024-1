@@ -21,7 +21,7 @@ public class Menu {
         int opcion = 0;
         do
         {
-            System.out.println("==Menu==");
+            System.out.println("\n==Menu==");
             System.out.println("1. Registrar Usuario que ingresa");			
             System.out.println("2. Listar usuarios que ingresan");
             System.out.println("3. Consultar usuario");
@@ -76,15 +76,15 @@ public class Menu {
             try
             {
                     System.out.println("\n==Listado de Usuarios registrados==");
-                    List<UsuarioEntradaSalidaDTO> usuariosREgistrados  = objRemoto.ListarUsuariosEntradaSalida();
-                    System.out.printf("| %-10s | %-15s | %-10s |\n", "ID", "Nombres", "Apellidos");
+                    List<UsuarioEntradaSalidaDTO> usuariosRegistrados  = objRemoto.ListarUsuariosEntradaSalida();
+                    System.out.printf("| %-10s | %-15s | %-10s | %-10s |\n", "ID", "Nombres", "Apellidos","Rol");
                     System.out.println("|------------|-----------------|------------|");
-                    for (int i = 0; i < usuariosREgistrados.size(); i++) {
-                        System.out.printf(
-                                "| %-10s | %-15s | %-10s |\n",
-                                usuariosREgistrados.get(i).getID(),
-                                usuariosREgistrados.get(i).getNombres(),
-                                usuariosREgistrados.get(i).getApellidos());
+                    for (int i = 0; i < usuariosRegistrados.size(); i++) {
+                        System.out.printf("| %-10s | %-15s | %-10s | %-10s |\n",
+                                        usuariosRegistrados.get(i).getID(),
+                                        usuariosRegistrados.get(i).getNombres(),
+                                        usuariosRegistrados.get(i).getApellidos(),
+                                        usuariosRegistrados.get(i).getRol());
                     }
             }
             catch(RemoteException e)
@@ -107,6 +107,7 @@ public class Menu {
             {
                     System.out.println("Nombres: " + objUsuario.getNombres());
                     System.out.println("Apellidos: " + objUsuario.getApellidos());
+                    System.out.println("Rol: " + objUsuario.getRol());
             }
             else
                     System.out.println("Usuario no encontrado");
@@ -136,6 +137,7 @@ public class Menu {
                             System.out.println("El usuario a sido eliminado exitosamente.");
                             break;
                         case 2:
+                            System.out.println("El usuario con identificación "+id+" sigue registrado en el sistema.");
                             break;
                         default: 
                             System.out.println("Opción incorrecta......");
@@ -183,7 +185,7 @@ public class Menu {
             else{
                 objUserRegistrado = objRemoto.consultarUsuarioEntradaSalida(Id);
                 if(objUserRegistrado != null){
-                    System.out.println("El usuario con el ID "+Id+" ya se encuentra registrado en el sistema.");
+                    System.err.println("El usuario con el ID "+Id+" ya se encuentra registrado en el sistema.");
                 }
             }
         } while (!(numeroACadena.length() == 8) || (objUserRegistrado != null));
